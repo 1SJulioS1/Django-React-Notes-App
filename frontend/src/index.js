@@ -1,11 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { NotesListPage } from "./pages/NotesListPage";
+import { NotePage } from "./pages/NotePage";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
 import App from "./App";
-
+import "./App.css";
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />}>
+      <Route path="note/" element={<NotesListPage />} />
+      <Route path="note/:id" element={<NotePage />} />
+    </Route>
+  )
+);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

@@ -1,14 +1,16 @@
-import "./App.css";
+import React from "react";
 import { Header } from "./components/Header";
-import { NotesListPage } from "./pages/NotesListPage";
+import { Outlet } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <NotesListPage />
+    <div className="container dark">
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
